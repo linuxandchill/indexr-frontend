@@ -1,0 +1,51 @@
+.header-container{
+  float: left;
+  width: 100%;
+}
+
+.header{
+  width: 100%;
+  float: left;
+  height:65px;
+  background-color: rgb(168, 50, 50);
+}
+
+.header-left{
+  float: left;
+  width: 300px;
+}
+
+.header-right{
+  float: right;
+}
+
+.repo-link{
+  width: 40px;
+  float: right;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.repo-link img{
+  width: 100%;
+}
+
+.header-brand{
+  float: left;
+  color: white;
+  font-size: 3rem;
+  margin-left:10px;
+}
+
+.header-logo{
+  max-height: 46px;
+  position: relative;
+  top: 7px;
+  margin-right: 8px;
+}
+
+.header-tagline{
+  float:left;
+  width: 100%;
+  text-align: center;
+}
