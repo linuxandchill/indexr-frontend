@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      indexr, find similar papers 
+      Start searching for papers
     </div>
   );
 }
