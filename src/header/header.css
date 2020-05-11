@@ -37,6 +37,13 @@
   margin-left:10px;
 }
 
+.header-logo{
+  max-height: 46px;
+  position: relative;
+  top: 7px;
+  margin-right: 8px;
+}
+
 .header-tagline{
   float:left;
   width: 100%;

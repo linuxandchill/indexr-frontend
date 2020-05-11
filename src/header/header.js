@@ -1,6 +1,7 @@
 import React from 'react';
 import './header.css';
 import githubLogo from './github.png';
+import indexrLogo from './coat.png';
 
 function Header(){
   return (
@@ -10,6 +11,7 @@ function Header(){
         <div className="header-left">
 
           <div className="header-brand">
+          <img className="header-logo" src={indexrLogo} alt="indexr, a search engine for simialr papers" />
             indexr
           </div>
 
