@@ -1,28 +1,51 @@
 import React from 'react';
 import './searchbox.css';
 
-function Searchbox(){
+class Searchbox extends React.Component {
 
-  return(
+  constructor(props) {
+    super(props);
+    this.state = {searchValue: ''};
 
-    <div className="searchbox-container">
-      <div className="searchbox">
-        <div className="searchbox-top">
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.submitQuery = this.submitQuery.bind(this);
 
-        Enter the URL of a paper on <a href="arxiv.org">arxiv.org</a> or the papers ID number
+  }
 
-        </div>
-        <div className="searchbox-form">
+  handleSearchChange(event){
+    this.setState({searchValue: event.target.value})
+  }
 
+  submitQuery(event) {
+    console.log(this.state.searchValue);
+    event.preventDefault();
+  }
+
+
+  render(){
+    return(
+      <div className="searchbox-container">
+        <div className="searchbox">
+          <div className="searchbox-top">
+          Enter the URL of a paper on <a href="arxiv.org">arxiv.org</a> or the paper's ID number
+          </div>
+          <div className="searchbox-form">
+            <form onSubmit={this.submitQuery}>
+            <div className="input-container">
+              <input type="text" className="searchbox-input" value={this.state.searchValue} onChange={this.handleSearchChange} name="paper" />
+            </div>
+            <div className="input-container">
+              <button className="button button-search" type="submit">search</button>
+            </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-
-
-  )
-
-
+    )
+  }
 
 }
+
+
 
 export default Searchbox
