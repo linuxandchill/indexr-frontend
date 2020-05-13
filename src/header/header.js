@@ -5,7 +5,7 @@ import indexrLogo from './coat.png';
 
 function Header(){
   return (
-    <div class="header-container">
+    <div className="header-container">
 
       <div className="header">
         <div className="header-left">
