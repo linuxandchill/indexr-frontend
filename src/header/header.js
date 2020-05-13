@@ -25,7 +25,7 @@ function Header(){
         </div>
       </div>
 
-      <div class="header-tagline">
+      <div className="header-tagline">
 indexr, find similar papers
       </div>
 
