@@ -35,7 +35,7 @@ class Searchbox extends React.Component {
               <input type="text" className="searchbox-input" value={this.state.searchValue} onChange={this.handleSearchChange} name="paper" />
             </div>
             <div className="input-container">
-              <button className="button button-search" type="submit">search</button>
+              <button className="button button-search" type="submit">find similar papers</button>
             </div>
             </form>
           </div>
