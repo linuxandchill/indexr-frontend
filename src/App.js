@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
+import Header from './header/header';
+import Searchbox from './searchbox/searchbox';
 
 function App() {
   return (
-    <div className="App">
-      Start searching for papers
-    </div>
+<React.StrictMode>
+    <Header />
+    <Searchbox />
+</React.StrictMode>
   );
 }
 
