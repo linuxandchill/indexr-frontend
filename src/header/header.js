@@ -5,7 +5,7 @@ import indexrLogo from './coat.png';
 
 function Header(){
   return (
-    <div class="header-container">
+    <div className="header-container">
 
       <div className="header">
         <div className="header-left">
@@ -25,7 +25,7 @@ function Header(){
         </div>
       </div>
 
-      <div class="header-tagline">
+      <div className="header-tagline">
 indexr, find similar papers
       </div>
 
