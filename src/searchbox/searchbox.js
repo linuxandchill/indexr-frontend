@@ -1,21 +1,15 @@
 import React from 'react';
 import './searchbox.css';
 import { gql } from 'apollo-boost';
-import { graphql, withApollo } from 'react-apollo';
+import { graphql, withApollo, mutation } from 'react-apollo';
+import { useMutation } from "@apollo/react-hooks";
 
 const paperQuery = gql`
-  query PaperSearchQuery($url: String!){
-    papers(url: $url) {
-      title
-      id
-      url
-      similar {
-        title
-        id
-        url
-      }
-    }
+mutation createLink {
+  createLink(input: { url: "https://www.google.com/" }) {
+    id
   }
+}
 `
 
 class Searchbox extends React.Component {
@@ -39,7 +33,7 @@ class Searchbox extends React.Component {
     const { filter } = this.state;
     let result = await this.props.client.query({
       query: paperQuery,
-      variables: {url: this.state.searchValue}
+      variables: {input: this.state.searchValue}
     });
     console.log(result)
     const searchResults = result.data.papers;
@@ -48,9 +42,10 @@ class Searchbox extends React.Component {
 
   displayResults(){
     if(this.state.searchResults){
-    return this.state.searchResults.map(paper => {
-      return(<div key={paper.id}>{paper.title}</div>)
-    })
+//    return this.state.searchResults.map(paper => {
+//      return(<div key={paper.id}>{paper.title}</div>)
+//    })
+      return this.state.searchResults
     }
 
   if(this.state.searching === true){
