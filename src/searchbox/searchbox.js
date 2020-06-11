@@ -7,12 +7,11 @@ import { useMutation } from "@apollo/react-hooks";
 
 
 const CREATE_LINK = gql`
-  mutation createLink($input: String!) {
-    createLink(input: $input) {
-      id
-      url
-    }
+mutation createLink($url: String!) {
+  createLink(input: { url: $url }) {
+    id
   }
+}
 `;
 
 class Searchbox extends React.Component {
@@ -35,7 +34,7 @@ class Searchbox extends React.Component {
   _executeSearch = async () => {
     let result = await this.props.client.mutate({
       mutation: CREATE_LINK,
-      variables: {input: this.state.searchValue}
+      variables: {url: this.state.searchValue}
     });
     console.log(result)
     const searchResults = result.data.papers;
