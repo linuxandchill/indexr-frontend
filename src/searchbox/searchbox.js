@@ -4,8 +4,8 @@ import { gql } from 'apollo-boost';
 import { graphql, withApollo } from 'react-apollo';
 
 const paperQuery = gql`
-  {
-    papers {
+  query PaperSearchQuery($url: String!){
+    papers(url: $url) {
       title
       id
       url
@@ -38,7 +38,8 @@ class Searchbox extends React.Component {
   _executeSearch = async () => {
     const { filter } = this.state;
     let result = await this.props.client.query({
-      query: paperQuery
+      query: paperQuery,
+      variables: {url: this.state.searchValue}
     });
     console.log(result)
     const searchResults = result.data.papers;
