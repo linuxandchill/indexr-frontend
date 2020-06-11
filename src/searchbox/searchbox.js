@@ -4,13 +4,16 @@ import { gql } from 'apollo-boost';
 import { graphql, withApollo, mutation } from 'react-apollo';
 import { useMutation } from "@apollo/react-hooks";
 
-const paperQuery = gql`
-mutation createLink {
-  createLink(input: { url: "https://www.google.com/" }) {
-    id
+
+
+const CREATE_LINK = gql`
+  mutation createLink($input: createLinkInput!) {
+    createLink(input: $input) {
+      id
+      url
+    }
   }
-}
-`
+`;
 
 class Searchbox extends React.Component {
 
@@ -32,7 +35,7 @@ class Searchbox extends React.Component {
   _executeSearch = async () => {
     const { filter } = this.state;
     let result = await this.props.client.query({
-      query: paperQuery,
+      query: CREATE_LINK,
       variables: {input: this.state.searchValue}
     });
     console.log(result)
